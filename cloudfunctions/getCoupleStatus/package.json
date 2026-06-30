@@ -1,0 +1,9 @@
+{
+  "name": "getCoupleStatus",
+  "version": "1.0.0",
+  "description": "查询情侣绑定状态（轻量级，只查 couples.members）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

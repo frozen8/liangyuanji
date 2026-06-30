@@ -1,0 +1,43 @@
+@use '@/styles/variables.scss' as *;
+
+.beastAvatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.halo {
+  position: absolute;
+  inset: 0;
+  border-radius: $radius-round;
+  background: radial-gradient(circle, rgba(255, 107, 157, 0.25) 0%, rgba(255, 107, 157, 0) 70%);
+}
+
+.aura {
+  position: absolute;
+  inset: 15%;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, rgba(255, 143, 177, 0.4) 0%, rgba(247, 181, 0, 0.3) 100%);
+  filter: blur(8rpx);
+}
+
+.emoji {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.low {
+  filter: grayscale(0.7) brightness(0.85);
+  opacity: 0.7;
+}
+
+.animate {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8rpx); }
+}

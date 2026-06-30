@@ -1,0 +1,33 @@
+@use '@/styles/variables.scss' as *;
+
+.countDown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.9;
+}
+
+.numberRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6rpx;
+}
+
+.number {
+  font-size: 56rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+  line-height: 1;
+}
+
+.unit {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  opacity: 0.9;
+}

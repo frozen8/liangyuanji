@@ -1,0 +1,152 @@
+@use '@/styles/variables.scss' as *;
+
+.budgetPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding: $spacing-lg $page-padding;
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+.loadingText {
+  display: block;
+  text-align: center;
+  color: $color-text-tertiary;
+  padding-top: 200rpx;
+}
+
+/* 概览卡 */
+.overviewCard {
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  border-radius: $radius-xl;
+  padding: $spacing-xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-lg;
+}
+
+.overviewEmoji {
+  font-size: 64rpx;
+  line-height: 1;
+  margin-bottom: $spacing-sm;
+}
+
+.overviewTitle {
+  font-size: $font-size-md;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: $spacing-lg;
+}
+
+.overviewGrid {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: $spacing-md;
+}
+
+.overviewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.overviewLabel {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.overviewValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+}
+
+.overviewValueSpent {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.overviewValueWarn {
+  color: #FFE5EA;
+}
+
+.overviewTip {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: $line-height-normal;
+}
+
+/* 通用区块卡片 */
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-lg;
+}
+
+.sectionTitle {
+  display: block;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+/* 换算比例 */
+.rateRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rateValue {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.rateLock {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+/* 输入框 */
+.input {
+  width: 100%;
+  height: 88rpx;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: 0 $spacing-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+  margin-bottom: $spacing-sm;
+}
+
+.hint {
+  display: block;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-bottom: $spacing-md;
+}
+
+/* 保存按钮 */
+.saveBtn {
+  width: 100%;
+  height: $button-height-md;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-white;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  @include button-reset;
+
+  &:active {
+    opacity: 0.9;
+  }
+}

@@ -1,0 +1,369 @@
+@use '@/styles/variables.scss' as *;
+
+.cultivatePage {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFF1E6 0%, #FFF8F3 50%);
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+// 今日统计
+.todayStats {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+  border-radius: $radius-lg;
+  box-shadow: 0 4rpx 20rpx rgba(247, 181, 0, 0.25);
+  display: flex;
+  justify-content: space-around;
+  color: $color-text-white;
+}
+
+.todayItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.todayValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.todayLabel {
+  font-size: $font-size-xs;
+  opacity: 0.92;
+}
+
+// 番茄钟主体
+.timerCard {
+  margin: $spacing-xl $page-padding;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.directionTag {
+  padding: 8rpx 24rpx;
+  border-radius: $radius-button;
+  background: rgba(247, 181, 0, 0.12);
+}
+
+.directionText {
+  font-size: $font-size-sm;
+  color: $color-accent-dark;
+  font-weight: $font-weight-medium;
+}
+
+// 圆形倒计时
+.timerRing {
+  position: relative;
+  width: 440rpx;
+  height: 440rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringSvg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.ringBg {
+  fill: none;
+  stroke: $color-bg-hover;
+  stroke-width: 16;
+}
+
+.ringProgress {
+  fill: none;
+  stroke: url(#grad);
+  stroke-width: 16;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  z-index: 1;
+}
+
+.timerTime {
+  font-size: 88rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timerStatus {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.dualBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 6rpx 16rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  margin-top: $spacing-xs;
+}
+
+.dualText {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+// 方向选择
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  align-self: flex-start;
+  margin-bottom: $spacing-sm;
+}
+
+.directionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+}
+
+.directionItem {
+  width: calc((100% - 32rpx) / 3);
+  padding: $spacing-sm 0;
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+  overflow: hidden;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.directionItemActive {
+  border-color: $color-accent;
+  background: rgba(247, 181, 0, 0.08);
+}
+
+.directionEmoji {
+  font-size: 32rpx;
+  line-height: 1;
+}
+
+.directionName {
+  font-size: 20rpx;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 0 4rpx;
+  box-sizing: border-box;
+}
+
+.directionNameActive {
+  color: $color-accent-dark;
+  font-weight: $font-weight-medium;
+}
+
+// 时长选择
+.durationRow {
+  display: flex;
+  gap: $spacing-xs;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+}
+
+.durationItem {
+  flex: 1;
+  padding: $spacing-sm 0;
+  background: $color-bg-card;
+  border-radius: $radius-button;
+  text-align: center;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+  overflow: hidden;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.durationItemActive {
+  border-color: $color-accent;
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+}
+
+.durationText {
+  font-size: 20rpx;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.durationTextActive {
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+// 操作按钮
+.actionRow {
+  display: flex;
+  gap: $spacing-md;
+  width: 100%;
+  justify-content: center;
+}
+
+.actionBtn {
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.88;
+    transform: scale(0.98);
+  }
+}
+
+.startBtn {
+  flex: 1;
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+  box-shadow: 0 4rpx 16rpx rgba(247, 181, 0, 0.3);
+}
+
+.actionBtnDisabled {
+  opacity: 0.5;
+}
+
+.pauseBtn {
+  flex: 1;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+}
+
+.resetBtn {
+  width: 160rpx;
+  background: $color-bg-card;
+  border: 2rpx solid $color-border;
+}
+
+.actionText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-white;
+  white-space: nowrap;
+}
+
+.actionTextDark {
+  color: $color-text-secondary;
+}
+
+// 历史入口
+.historyEntry {
+  margin: 0 $page-padding;
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historyLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.historyEmoji {
+  font-size: 32rpx;
+}
+
+.historyText {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.historyArrow {
+  color: $color-text-tertiary;
+  font-size: $font-size-md;
+}
+
+// 番茄库存提示
+.tomatoHint {
+  margin: $spacing-sm $page-padding 0;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(255, 107, 157, 0.08);
+  border-radius: $radius-md;
+  text-align: center;
+}
+
+.tomatoHintText {
+  font-size: $font-size-xs;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+// 自定义输入框
+.customInput {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-card;
+  border: 2rpx solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $color-accent;
+  }
+}
+
+// 自定义时长输入行
+.customDurationRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+}
+
+.customDurationSuffix {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  flex-shrink: 0;
+}
+
+// 终止按钮
+.terminateBtn {
+  flex: 1;
+  background: linear-gradient(135deg, #F53F3F 0%, #FF7D00 100%);
+  box-shadow: 0 4rpx 16rpx rgba(245, 63, 63, 0.2);
+}

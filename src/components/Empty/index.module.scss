@@ -1,0 +1,21 @@
+@use '@/styles/variables.scss' as *;
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl $spacing-lg;
+  gap: $spacing-sm;
+}
+
+.emoji {
+  font-size: 80rpx;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.text {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}

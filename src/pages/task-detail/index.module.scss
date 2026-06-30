@@ -1,0 +1,465 @@
+@use '@/styles/variables.scss' as *;
+
+.detailPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding: $spacing-lg $page-padding;
+  padding-bottom: 200rpx;
+}
+
+/* 加载状态 */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+  gap: $spacing-md;
+}
+
+.loadingEmoji {
+  font-size: 80rpx;
+}
+
+.loadingText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+}
+
+/* 妖兽卡片 */
+.beastCard {
+  border-radius: $radius-xl;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.beastHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.beastEmoji {
+  font-size: 64rpx;
+  line-height: 1;
+}
+
+.beastInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.beastName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+}
+
+.beastCategory {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.beastDifficulty {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+}
+
+.beastStatusRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.beastStatusTag {
+  padding: 4rpx $spacing-sm;
+  border-radius: $radius-button;
+  font-size: $font-size-xs;
+  color: $color-text-white;
+}
+
+.beastUrgency {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 通用区块 */
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+/* 信息列表 */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  padding: $spacing-xs 0;
+}
+
+.infoLabel {
+  width: 120rpx;
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.infoValue {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+}
+
+/* 备注 */
+.noteContent {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+}
+
+/* 奖励卡片 */
+.rewardCard {
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.rewardTitle {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+  margin-bottom: $spacing-md;
+}
+
+.rewardList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.rewardItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.rewardEmoji {
+  font-size: 36rpx;
+}
+
+.rewardValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+}
+
+.rewardLabel {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 底部按钮 */
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: $shadow-float;
+}
+
+.deleteBtn {
+  flex: 1;
+  height: $button-height-lg;
+  background: $color-bg-page;
+  color: $color-error;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  @include button-reset;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.completeBtn {
+  flex: 2;
+  height: $button-height-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-white;
+  border-radius: $radius-button;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  @include button-reset;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+/* 降服奖励弹窗 */
+.rewardModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.rewardModalContent {
+  background: $color-bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  animation: popIn 0.4s ease;
+}
+
+.rewardModalEmoji {
+  font-size: 96rpx;
+  line-height: 1;
+  margin-bottom: $spacing-md;
+  animation: shake 0.5s ease;
+}
+
+.rewardModalTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.rewardModalDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-lg;
+}
+
+.rewardModalList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.rewardModalItem {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10rpx) rotate(-5deg); }
+  75% { transform: translateX(10rpx) rotate(5deg); }
+}
+
+/* 降服弹窗（实际花费输入） */
+.completeModalContent {
+  background: $color-bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  width: 84%;
+  animation: popIn 0.4s ease;
+}
+
+.completeModalTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.completeModalLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xs;
+  text-align: left;
+}
+
+.completeModalBudget {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-md;
+  text-align: left;
+}
+
+.completeModalInputWrap {
+  position: relative;
+  margin-bottom: $spacing-md;
+}
+
+.completeModalInput {
+  width: 100%;
+  height: 88rpx;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: 0 $spacing-md;
+  padding-right: 200rpx;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+}
+
+.completeModalRate {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: $font-size-xs;
+  color: $color-secondary;
+  font-weight: $font-weight-medium;
+}
+
+.completeModalCalc {
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.completeModalCalcRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: $font-size-sm;
+}
+
+.completeModalCalcLabel {
+  color: $color-text-secondary;
+}
+
+.completeModalCalcValue {
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.completeModalCalcValueOk {
+  color: $color-success;
+}
+
+.completeModalCalcValueWarn {
+  color: $color-error;
+}
+
+.completeModalActions {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+}
+
+.completeModalCancel {
+  flex: 1;
+  height: $button-height-md;
+  background: $color-bg-page;
+  color: $color-text-secondary;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  @include button-reset;
+}
+
+.completeModalConfirm {
+  flex: 2;
+  height: $button-height-md;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-white;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  @include button-reset;
+}
+
+/* 归档按钮（已完成任务） */
+.archiveBtn {
+  flex: 1;
+  height: $button-height-lg;
+  background: $color-bg-page;
+  color: $color-text-secondary;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  @include button-reset;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+/* 预算/实际花费展示行 */
+.budgetRow {
+  display: flex;
+  align-items: center;
+  padding: $spacing-xs 0;
+  gap: $spacing-xs;
+}
+
+.budgetTag {
+  display: inline-block;
+  padding: 2rpx $spacing-xs;
+  border-radius: $radius-xs;
+  font-size: 20rpx;
+  margin-left: $spacing-xs;
+}
+
+.budgetTagSaved {
+  background: rgba(0, 180, 42, 0.12);
+  color: $color-success;
+}
+
+.budgetTagOver {
+  background: rgba(245, 63, 63, 0.12);
+  color: $color-error;
+}

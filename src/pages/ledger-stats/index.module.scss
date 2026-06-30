@@ -1,0 +1,354 @@
+@use '@/styles/variables.scss' as *;
+
+.statsPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl 0;
+}
+
+.loadingEmoji {
+  font-size: 96rpx;
+  line-height: 1;
+}
+
+.loadingText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+}
+
+.monthBar {
+  background: $color-bg-card;
+  padding: $spacing-md $page-padding;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: $shadow-card;
+}
+
+.monthLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.monthTabs {
+  display: flex;
+  gap: $spacing-xs;
+  background: $color-bg-page;
+  border-radius: $radius-round;
+  padding: 4rpx;
+}
+
+.monthTab {
+  padding: 8rpx 24rpx;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  border-radius: $radius-round;
+  transition: all $transition-base;
+}
+
+.monthTabActive {
+  background: $color-primary;
+  color: #fff;
+  font-weight: $font-weight-medium;
+}
+
+.scrollArea {
+  flex: 1;
+  padding: $spacing-md $page-padding $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.overviewCard {
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-dark 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  box-shadow: $shadow-card;
+}
+
+.overviewTitle {
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.overviewAmountRow {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+}
+
+.overviewSpent {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+}
+
+.overviewBudget {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.overviewRmb {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.progressBar {
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: #fff;
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+.progressBarFillDanger {
+  background: $color-error;
+}
+
+.overviewFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overviewPercent {
+  font-size: $font-size-sm;
+  color: #fff;
+  font-weight: $font-weight-semibold;
+}
+
+.overviewRemain {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.overviewRemainWarn {
+  color: #ffe8a3;
+  font-weight: $font-weight-semibold;
+}
+
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.rankList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.rankItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.rankHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.rankIndex {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  min-width: 60rpx;
+}
+
+.rankLabel {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  flex: 1;
+}
+
+.rankAmount {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.rankPercent {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  min-width: 60rpx;
+  text-align: right;
+}
+
+.rankBar {
+  height: 12rpx;
+  background: $color-bg-page;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.rankBarFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+.compareRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding: $spacing-sm 0;
+}
+
+.compareCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  flex: 1;
+}
+
+.compareAvatar {
+  font-size: 60rpx;
+}
+
+.compareName {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.compareAmount {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.comparePercent {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.compareVS {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  background: $color-bg-page;
+  padding: 4rpx 16rpx;
+  border-radius: $radius-round;
+  font-weight: $font-weight-bold;
+}
+
+.trendChart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $spacing-xs;
+  height: 280rpx;
+  padding: $spacing-sm 0;
+}
+
+.trendCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  height: 100%;
+}
+
+.trendBarWrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.trendBar {
+  width: 80%;
+  background: linear-gradient(180deg, $color-primary 0%, $color-primary-light 100%);
+  border-radius: $radius-sm $radius-sm 0 0;
+  min-height: 8rpx;
+  transition: height 0.4s ease;
+}
+
+.trendAmount {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.trendDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.adviceList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.adviceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+}
+
+.adviceIcon {
+  font-size: $font-size-md;
+  line-height: 1.5;
+}
+
+.adviceText {
+  flex: 1;
+  color: $color-text-primary;
+}
+
+.adviceOk {
+  background: rgba(0, 180, 42, 0.08);
+}
+
+.adviceWarn {
+  background: rgba(255, 125, 0, 0.08);
+}
+
+.adviceDanger {
+  background: rgba(245, 63, 63, 0.08);
+}

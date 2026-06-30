@@ -1,0 +1,243 @@
+@use '@/styles/variables.scss' as *;
+
+.ledgerPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+// 预算总览
+.budgetCard {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+  border-radius: $radius-lg;
+  box-shadow: 0 4rpx 20rpx rgba(61, 170, 154, 0.25);
+  color: $color-text-white;
+}
+
+.budgetRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: $spacing-sm;
+}
+
+.budgetLabel {
+  font-size: $font-size-sm;
+  opacity: 0.92;
+}
+
+.budgetTotal {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.budgetRmb {
+  font-size: $font-size-xs;
+  opacity: 0.85;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.budgetSubRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: $font-size-xs;
+  opacity: 0.92;
+  margin-top: $spacing-sm;
+}
+
+.budgetProgress {
+  height: 12rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: $radius-round;
+  overflow: hidden;
+  margin-top: $spacing-xs;
+}
+
+.budgetFill {
+  height: 100%;
+  background: $color-text-white;
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+// 分类统计
+.statsCard {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.statsTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.statBar {
+  margin-bottom: $spacing-sm;
+}
+
+.statBarHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6rpx;
+}
+
+.statBarLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.statBarValue {
+  font-size: $font-size-xs;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.statBarTrack {
+  height: 12rpx;
+  background: $color-bg-hover;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.statBarFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+// 双人排行
+.recorderRow {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.recorderCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.recorderAvatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-round;
+  border: 4rpx solid $color-secondary-light;
+}
+
+.recorderName {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.recorderAmount {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-expense;
+}
+
+.recorderVs {
+  font-size: $font-size-lg;
+  color: $color-text-tertiary;
+}
+
+// 筛选
+.filterBar {
+  padding: $spacing-md $page-padding $spacing-sm;
+}
+
+.categoryScroll {
+  white-space: nowrap;
+}
+
+.categoryItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 10rpx 20rpx;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  margin-right: $spacing-sm;
+  border: 2rpx solid $color-border;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.categoryItemActive {
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+  border-color: $color-secondary;
+}
+
+.categoryEmoji {
+  font-size: $font-size-sm;
+}
+
+.categoryText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.categoryTextActive {
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+// 流水列表
+.listSection {
+  padding: 0 $page-padding;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.listSectionTitle {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  padding: $spacing-sm 0;
+}
+
+// 悬浮记账
+.fab {
+  position: fixed;
+  right: $spacing-lg;
+  bottom: calc(140rpx + env(safe-area-inset-bottom));
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, $color-secondary 0%, $color-accent 100%);
+  box-shadow: 0 8rpx 24rpx rgba(61, 170, 154, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
+.fabText {
+  font-size: 48rpx;
+  color: $color-text-white;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}

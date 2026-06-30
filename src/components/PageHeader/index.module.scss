@@ -1,0 +1,30 @@
+@use '@/styles/variables.scss' as *;
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-md 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.emoji {
+  font-size: $font-size-xl;
+  line-height: 1;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}

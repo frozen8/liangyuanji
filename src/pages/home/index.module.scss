@@ -1,0 +1,458 @@
+@use '@/styles/variables.scss' as *;
+
+.homePage {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFF1E6 0%, #FFF8F3 40%, #FFF8F3 100%);
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+// 顶部飞升倒计时 banner
+.banner {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg $spacing-lg;
+  border-radius: $radius-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  box-shadow: 0 4rpx 20rpx rgba(255, 107, 157, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40rpx;
+    right: -40rpx;
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: $radius-round;
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.bannerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+  z-index: 1;
+}
+
+.bannerTitle {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  opacity: 0.92;
+}
+
+.bannerDate {
+  font-size: $font-size-md;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
+
+// 灵兽展示区
+.beastSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xl $page-padding $spacing-lg;
+  gap: $spacing-sm;
+  position: relative;
+}
+
+// 投喂动画 - 灵兽跳动
+.beastBounce {
+  animation: beastBounce 0.6s ease;
+
+  @keyframes beastBounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.15) translateY(-10rpx); }
+    60% { transform: scale(0.95) translateY(4rpx); }
+    100% { transform: scale(1); }
+  }
+}
+
+// 投喂动画 - 番茄粒子
+.feedParticle {
+  position: absolute;
+  font-size: 40rpx;
+  z-index: 10;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  animation: feedFly 1.2s ease-out forwards;
+}
+
+.feedParticle1 {
+  animation-delay: 0s;
+  --tx: -120rpx;
+  --ty: -80rpx;
+}
+
+.feedParticle2 {
+  animation-delay: 0.15s;
+  --tx: 100rpx;
+  --ty: -100rpx;
+}
+
+.feedParticle3 {
+  animation-delay: 0.3s;
+  --tx: -60rpx;
+  --ty: -120rpx;
+}
+
+@keyframes feedFly {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(calc(-50% + var(--tx) * 0.5), calc(-50% + var(--ty) * 0.5)) scale(1.2);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+  }
+}
+
+// 投喂动画 - 爱心
+.feedHeart {
+  position: absolute;
+  font-size: 48rpx;
+  z-index: 11;
+  pointer-events: none;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: heartPop 1s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+
+  @keyframes heartPop {
+    0% {
+      transform: translateX(-50%) scale(0);
+      opacity: 0;
+    }
+    30% {
+      transform: translateX(-50%) scale(1.3);
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(-60rpx) scale(0.8);
+      opacity: 0;
+    }
+  }
+}
+
+.beastName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.realmBadge {
+  padding: 6rpx 20rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.realmText {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+// 修为进度
+.cultivationCard {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.cultivationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+}
+
+.cultivationLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+}
+
+.cultivationValue {
+  font-size: $font-size-sm;
+  color: $color-accent-dark;
+  font-weight: $font-weight-semibold;
+}
+
+.progressBar {
+  height: 16rpx;
+  background: $color-bg-hover;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-accent 0%, $color-accent-light 100%);
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $spacing-xs;
+}
+
+.progressTip {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+// 四维状态
+.statsRow {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg $spacing-sm;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+// 番茄投喂卡片
+.feedCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.06) 0%, rgba(247, 181, 0, 0.06) 100%);
+  border-radius: $radius-lg;
+  border: 2rpx solid rgba(255, 107, 157, 0.15);
+}
+
+.feedInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex: 1;
+  min-width: 0;
+}
+
+.feedEmoji {
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.feedTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+  flex: 1;
+  min-width: 0;
+}
+
+.feedTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.feedDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.feedStock {
+  font-size: $font-size-xs;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.feedBtn {
+  padding: $spacing-xs $spacing-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  border-radius: $radius-button;
+  flex-shrink: 0;
+
+  &:active {
+    opacity: 0.88;
+    transform: scale(0.98);
+  }
+}
+
+.feedBtnDisabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.feedBtnText {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+// 双人区
+.coupleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.coupleAvatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-round;
+  border: 4rpx solid $color-primary-light;
+}
+
+.heart {
+  font-size: 32rpx;
+  color: $color-primary;
+}
+
+.coupleName {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-top: 6rpx;
+}
+
+.coupleCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+// 区块标题
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-sm;
+}
+
+.sectionTitleText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.sectionMore {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+// 今日待办
+.taskList {
+  padding: 0 $page-padding;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+// 今日速览
+.todayRow {
+  display: flex;
+  gap: $spacing-sm;
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.todayCard {
+  flex: 1;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.todayLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.todayValue {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.todaySub {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+// 快速入口
+.quickRow {
+  display: flex;
+  gap: $spacing-sm;
+  padding: 0 $page-padding;
+}
+
+.quickBtn {
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rpx;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.88;
+    transform: scale(0.98);
+  }
+}
+
+.quickQuest {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+}
+
+.quickLedger {
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+}
+
+.quickCultivate {
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+}
+
+.quickText {
+  color: $color-text-white;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}

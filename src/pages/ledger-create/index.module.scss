@@ -1,0 +1,203 @@
+@use '@/styles/variables.scss' as *;
+
+.createPage {
+  height: 100vh;
+  background: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollContent {
+  flex: 1;
+  padding: $spacing-lg $page-padding;
+  padding-bottom: 160rpx;
+}
+
+/* 表单卡片 */
+.formCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.formLabel {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+/* 灵石金额输入 */
+.amountInputWrap {
+  position: relative;
+  width: 100%;
+}
+
+.amountInput {
+  width: 100%;
+  height: 88rpx;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: 0 $spacing-md;
+  padding-right: 200rpx;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+}
+
+.amountRate {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: $font-size-xs;
+  color: $color-secondary;
+  font-weight: $font-weight-medium;
+}
+
+.amountHint {
+  display: block;
+  margin-top: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.amountWarnTip {
+  display: block;
+  margin-top: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $color-warning;
+}
+
+/* 分类选择 */
+.categoryScroll {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.categoryItem {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+  padding: $spacing-sm $spacing-md;
+  margin-right: $spacing-sm;
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  min-width: 120rpx;
+  transition: all $transition-base;
+}
+
+.categoryItemActive {
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+}
+
+.categoryEmoji {
+  font-size: 40rpx;
+}
+
+.categoryName {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.categoryItemActive .categoryName {
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+.categoryTip {
+  display: block;
+  margin-top: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+/* 日期选择 */
+.pickerValue {
+  width: 100%;
+  height: 88rpx;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: 0 $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.pickerText {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.pickerArrow {
+  color: $color-text-tertiary;
+  font-size: $font-size-lg;
+}
+
+/* 备注 */
+.noteInput {
+  width: 100%;
+  min-height: 120rpx;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  box-sizing: border-box;
+}
+
+/* 灵石说明卡片 */
+.tipCard {
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.tipTitle {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+  margin-bottom: $spacing-sm;
+}
+
+.tipText {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* 底部按钮 */
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: $shadow-float;
+}
+
+.submitBtn {
+  width: 100%;
+  height: $button-height-lg;
+  background: linear-gradient(135deg, $color-secondary 0%, $color-accent 100%);
+  color: $color-text-white;
+  border-radius: $radius-button;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  @include button-reset;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}

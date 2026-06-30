@@ -1,0 +1,272 @@
+@use '@/styles/variables.scss' as *;
+
+.pediaPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl 0;
+}
+
+.loadingEmoji {
+  font-size: 96rpx;
+  line-height: 1;
+}
+
+.loadingText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+}
+
+.scrollArea {
+  flex: 1;
+  padding: $spacing-md $page-padding $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.currentCard {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-xl $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  box-shadow: $shadow-card;
+}
+
+.currentEmojiWrap {
+  width: 200rpx;
+  height: 200rpx;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-xs;
+}
+
+.currentEmoji {
+  font-size: 120rpx;
+  line-height: 1;
+}
+
+.currentName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+}
+
+.currentRealm {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cultivationBar {
+  width: 100%;
+  height: 12rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: $radius-round;
+  overflow: hidden;
+  margin-top: $spacing-xs;
+}
+
+.cultivationBarFill {
+  height: 100%;
+  background: $color-accent;
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+.cultivationText {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.stageList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.stageCard {
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  border: 2rpx solid transparent;
+  transition: all $transition-base;
+}
+
+.stageCardCurrent {
+  border-color: $color-primary;
+  background: rgba(255, 107, 157, 0.05);
+}
+
+.stageCardLocked {
+  opacity: 0.7;
+}
+
+.stageHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.stageEmoji {
+  font-size: 56rpx;
+  line-height: 1;
+}
+
+.stageInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.stageName {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.stageRequire {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.stageBadge {
+  font-size: $font-size-xs;
+  padding: 4rpx $spacing-sm;
+  border-radius: $radius-round;
+  font-weight: $font-weight-medium;
+}
+
+.stageBadgeUnlocked {
+  background: rgba(0, 180, 42, 0.1);
+  color: $color-success;
+}
+
+.stageBadgeCurrent {
+  background: $color-primary;
+  color: #fff;
+}
+
+.stageBadgeLocked {
+  background: $color-divider;
+  color: $color-text-tertiary;
+}
+
+.stageDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.5;
+}
+
+.stageExtra {
+  background: $color-bg-card;
+  border-radius: $radius-sm;
+  padding: $spacing-sm $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-top: $spacing-xs;
+}
+
+.stageExtraRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rpx 0;
+}
+
+.stageExtraLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.stageExtraValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.decorationGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+}
+
+.decorationItem {
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-xs;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.decorationItemLocked {
+  opacity: 0.5;
+}
+
+.decorationEmoji {
+  font-size: 56rpx;
+  line-height: 1;
+}
+
+.decorationName {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-align: center;
+}
+
+.decorationCount {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  text-align: center;
+  padding-top: $spacing-xs;
+}
+
+.lockedHint {
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  text-align: center;
+}
+
+.lockedHintText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}

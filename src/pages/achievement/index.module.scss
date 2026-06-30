@@ -1,0 +1,240 @@
+@use '@/styles/variables.scss' as *;
+
+.achievementPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl 0;
+}
+
+.loadingEmoji {
+  font-size: 96rpx;
+  line-height: 1;
+}
+
+.loadingText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+}
+
+.scrollArea {
+  flex: 1;
+  padding: $spacing-md $page-padding $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.progressCard {
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-dark 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  box-shadow: $shadow-card;
+}
+
+.progressTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  text-align: center;
+}
+
+.progressBar {
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: #fff;
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+.progressPercent {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  text-align: center;
+}
+
+.progressTip {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.achievementGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-sm;
+}
+
+.achievementItem {
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-xs;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  transition: all $transition-base;
+}
+
+.achievementItemLocked {
+  opacity: 0.6;
+}
+
+.achievementEmoji {
+  font-size: 64rpx;
+  line-height: 1;
+}
+
+.achievementName {
+  font-size: $font-size-xs;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+  text-align: center;
+}
+
+.achievementDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-align: center;
+}
+
+.emptyHint {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  text-align: center;
+  padding: $spacing-md 0;
+}
+
+.modalMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: $page-padding;
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 600rpx;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  box-shadow: $shadow-popup;
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modalEmoji {
+  font-size: 120rpx;
+  line-height: 1;
+}
+
+.modalName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.modalBadge {
+  padding: 4rpx $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+}
+
+.modalBadgeUnlocked {
+  background: rgba(0, 180, 42, 0.1);
+  color: $color-success;
+}
+
+.modalBadgeLocked {
+  background: $color-divider;
+  color: $color-text-tertiary;
+}
+
+.modalDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: 1.6;
+  padding: $spacing-xs 0;
+}
+
+.modalDate {
+  font-size: $font-size-xs;
+  color: $color-accent-dark;
+  font-weight: $font-weight-medium;
+}
+
+.modalHint {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.modalCloseBtn {
+  margin-top: $spacing-sm;
+  padding: $spacing-sm $spacing-xl;
+  background: $color-primary;
+  border-radius: $radius-round;
+}
+
+.modalCloseText {
+  font-size: $font-size-sm;
+  color: #fff;
+  font-weight: $font-weight-medium;
+}

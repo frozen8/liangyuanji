@@ -1,0 +1,121 @@
+@use '@/styles/variables.scss' as *;
+
+.questPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+// 顶部统计
+.headerCard {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  border-radius: $radius-lg;
+  box-shadow: 0 4rpx 20rpx rgba(255, 107, 157, 0.2);
+  display: flex;
+  justify-content: space-around;
+}
+
+.headerItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.headerValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+}
+
+.headerLabel {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.9;
+}
+
+// 筛选栏
+.filterBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $color-bg-page;
+  padding: $spacing-md $page-padding $spacing-sm;
+}
+
+.categoryScroll {
+  white-space: nowrap;
+}
+
+.categoryItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 12rpx 24rpx;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  margin-right: $spacing-sm;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.categoryItemActive {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  border-color: $color-primary;
+}
+
+.categoryEmoji {
+  font-size: $font-size-sm;
+}
+
+.categoryText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.categoryTextActive {
+  color: $color-text-white;
+  font-weight: $font-weight-medium;
+}
+
+// 任务列表
+.taskList {
+  padding: 0 $page-padding;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+// 悬浮添加按钮
+.fab {
+  position: fixed;
+  right: $spacing-lg;
+  bottom: calc(140rpx + env(safe-area-inset-bottom));
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  box-shadow: 0 8rpx 24rpx rgba(255, 107, 157, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
+.fabText {
+  font-size: 56rpx;
+  color: $color-text-white;
+  line-height: 1;
+}

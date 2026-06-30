@@ -1,0 +1,316 @@
+@use '@/styles/variables.scss' as *;
+
+.minePage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+// 双人卡片
+.coupleCard {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-xl $spacing-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  border-radius: $radius-lg;
+  box-shadow: 0 4rpx 20rpx rgba(255, 107, 157, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -60rpx;
+    right: -60rpx;
+    width: 220rpx;
+    height: 220rpx;
+    border-radius: $radius-round;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.coupleAvatars {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  z-index: 1;
+}
+
+.coupleAvatarWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.coupleAvatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-round;
+  border: 4rpx solid rgba(255, 255, 255, 0.6);
+}
+
+.coupleNickname {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.95;
+}
+
+.coupleHeart {
+  font-size: 40rpx;
+  color: $color-text-white;
+}
+
+.affinityRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  z-index: 1;
+  margin-top: $spacing-xs;
+}
+
+.affinityLabel {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.92;
+}
+
+.affinityValue {
+  font-size: $font-size-lg;
+  color: $color-text-white;
+  font-weight: $font-weight-bold;
+}
+
+.bindStatus {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.92;
+  z-index: 1;
+}
+
+// 境界卡片
+.realmCard {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.realmHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-sm;
+}
+
+.realmName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.realmLevel {
+  font-size: $font-size-xs;
+  color: $color-accent-dark;
+  font-weight: $font-weight-medium;
+  padding: 4rpx 16rpx;
+  background: rgba(247, 181, 0, 0.12);
+  border-radius: $radius-button;
+}
+
+.realmProgress {
+  height: 16rpx;
+  background: $color-bg-hover;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.realmFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-accent 0%, $color-accent-light 100%);
+  border-radius: $radius-round;
+  transition: width 0.4s ease;
+}
+
+.realmMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $spacing-xs;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+// 灵石展示
+.spiritCard {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-md $spacing-lg;
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+  border-radius: $radius-lg;
+  box-shadow: 0 4rpx 16rpx rgba(61, 170, 154, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spiritLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.spiritEmoji {
+  font-size: 40rpx;
+}
+
+.spiritInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rpx;
+}
+
+.spiritLabel {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.92;
+}
+
+.spiritValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+}
+
+.spiritTip {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  opacity: 0.92;
+}
+
+// 功能入口
+.menuGroup {
+  margin: $spacing-md $page-padding 0;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  gap: $spacing-md;
+  border-bottom: 2rpx solid $color-divider;
+  transition: background $transition-base;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background: $color-bg-hover;
+  }
+}
+
+.menuEmoji {
+  font-size: 36rpx;
+  width: 48rpx;
+  text-align: center;
+}
+
+.menuText {
+  flex: 1;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.menuArrow {
+  color: $color-text-tertiary;
+  font-size: $font-size-md;
+}
+
+.menuBadge {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  background: $color-primary;
+  padding: 2rpx 12rpx;
+  border-radius: $radius-button;
+  margin-right: $spacing-xs;
+}
+
+// 头像占位
+.coupleAvatarPlaceholder {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-round;
+  background: rgba(255, 255, 255, 0.25);
+  border: 4rpx solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+}
+
+// 解绑请求横幅
+.unbindBanner {
+  margin: $spacing-md $page-padding 0;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.unbindBannerWait {
+  background: linear-gradient(135deg, #FFF6E5 0%, #FFE9C7 100%);
+  border: 2rpx solid rgba(247, 181, 0, 0.3);
+}
+
+.unbindBannerDanger {
+  background: linear-gradient(135deg, #FFE5EA 0%, #FFD0D8 100%);
+  border: 2rpx solid rgba(245, 63, 63, 0.25);
+}
+
+.unbindBannerText {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+}
+
+.unbindActions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.unbindBtn {
+  flex: 1;
+  height: $button-height-sm;
+  border-radius: $radius-button;
+  font-size: $font-size-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity $transition-fast;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.unbindBtnDanger {
+  background: $color-primary;
+  color: $color-text-white;
+}
+
+.unbindBtnOutline {
+  background: rgba(255, 255, 255, 0.7);
+  color: $color-text-secondary;
+  border: 2rpx solid rgba(0, 0, 0, 0.08);
+}
+

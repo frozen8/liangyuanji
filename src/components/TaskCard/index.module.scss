@@ -1,0 +1,169 @@
+@use '@/styles/variables.scss' as *;
+
+.taskCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.99);
+    opacity: 0.95;
+  }
+}
+
+.overdue {
+  border-left: 6rpx solid $color-error;
+}
+
+.done {
+  opacity: 0.6;
+  border-left: 6rpx solid $color-success;
+}
+
+.left {
+  flex-shrink: 0;
+}
+
+.emojiBadge {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji {
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  flex: 1;
+  min-width: 0;
+  @include text-ellipsis;
+}
+
+.statusTag {
+  flex-shrink: 0;
+  padding: 4rpx 12rpx;
+  border-radius: $radius-xs;
+}
+
+.statusText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.category,
+.difficulty,
+.deadline {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.dot {
+  color: $color-text-disabled;
+  font-size: $font-size-xs;
+}
+
+.deadlineWarn {
+  color: $color-error;
+}
+
+.rewardRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.rewardItem {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.rewardEmoji {
+  font-size: $font-size-xs;
+}
+
+.rewardValue {
+  font-size: $font-size-xs;
+  color: $color-accent-dark;
+  font-weight: $font-weight-medium;
+}
+
+.assignee {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-left: auto;
+  @include text-ellipsis;
+}
+
+.peopleRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.personTag {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+}
+
+.actionBtn {
+  flex-shrink: 0;
+  width: 88rpx;
+  height: 56rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.85;
+    transform: scale(0.96);
+  }
+}
+
+.actionText {
+  color: $color-text-white;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}

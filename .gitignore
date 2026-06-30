@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# IDE & tool files
+.pai/
+.trae/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Auth & credentials (sensitive)
+.auth/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Cache
+.cache/
+.eslintcache
+coverage/
+.swc/

@@ -1,0 +1,251 @@
+@use '@/styles/variables.scss' as *;
+
+.historyPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl 0;
+}
+
+.loadingEmoji {
+  font-size: 96rpx;
+  line-height: 1;
+}
+
+.loadingText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+}
+
+.scrollArea {
+  flex: 1;
+  padding: $spacing-md $page-padding $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.statsCard {
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-dark 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  box-shadow: $shadow-card;
+}
+
+.statsTitle {
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.statsGrid {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.statsItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.statsValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.statsLabel {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.statsDivider {
+  width: 1rpx;
+  height: 60rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.statsDual {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: $radius-sm;
+  padding: $spacing-xs $spacing-sm;
+  text-align: center;
+}
+
+.statsDualText {
+  font-size: $font-size-sm;
+  color: #fff;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl 0;
+}
+
+.emptyEmoji {
+  font-size: 120rpx;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.emptyText {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+}
+
+.emptyTip {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.dateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.dateLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  padding: 0 $spacing-xs;
+}
+
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.sessionCard {
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  box-shadow: $shadow-card;
+  position: relative;
+  transition: all $transition-base;
+}
+
+.sessionCardAbandoned {
+  opacity: 0.6;
+}
+
+.sessionHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.sessionEmoji {
+  font-size: 48rpx;
+  line-height: 1;
+}
+
+.sessionInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.sessionDir {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.sessionDuration {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.dualTag {
+  font-size: $font-size-xs;
+  color: $color-primary;
+  background: rgba(255, 107, 157, 0.1);
+  padding: 4rpx $spacing-sm;
+  border-radius: $radius-round;
+  font-weight: $font-weight-medium;
+}
+
+.sessionReward {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding-top: $spacing-xs;
+  border-top: 1rpx solid $color-divider;
+}
+
+.rewardItem {
+  font-size: $font-size-sm;
+  color: $color-accent-dark;
+  font-weight: $font-weight-medium;
+}
+
+.sessionTime {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-left: auto;
+}
+
+.abandonedTag {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $color-error;
+  background: rgba(245, 63, 63, 0.1);
+  padding: 4rpx $spacing-sm;
+  border-radius: $radius-sm;
+}
+
+.sessionDetail {
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  padding: $spacing-sm $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-top: $spacing-xs;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rpx 0;
+}
+
+.detailLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.detailValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}

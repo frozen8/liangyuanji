@@ -1,0 +1,181 @@
+@use '@/styles/variables.scss' as *;
+
+.detailPage {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding: $spacing-md $page-padding calc(#{$spacing-xl} + 120rpx);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl 0;
+}
+
+.loadingEmoji {
+  font-size: 96rpx;
+  line-height: 1;
+}
+
+.loadingText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+}
+
+.amountCard {
+  border-radius: $radius-lg;
+  padding: $spacing-xl $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  box-shadow: $shadow-md;
+}
+
+.amountValue {
+  font-size: 72rpx;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.amountCategory {
+  font-size: $font-size-base;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  box-shadow: $shadow-sm;
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-xs 0;
+  border-bottom: 1rpx solid $color-border;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.infoValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.noteContent {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  padding: $spacing-xs 0;
+}
+
+.categoryOverview {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.categoryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.categoryAmount {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.categoryPercent {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-accent;
+}
+
+.categoryBar {
+  height: 12rpx;
+  background: $color-bg-page;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.categoryBarFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width 0.3s ease;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+
+.deleteBtn {
+  @include button-reset;
+  flex: 1;
+  height: 80rpx;
+  border-radius: $radius-md;
+  background: rgba(245, 63, 63, 0.08);
+  color: #f53f3f;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+}
+
+.editBtn {
+  @include button-reset;
+  flex: 1;
+  height: 80rpx;
+  border-radius: $radius-md;
+  background: $color-primary;
+  color: #fff;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+}
